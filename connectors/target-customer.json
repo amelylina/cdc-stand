@@ -1,0 +1,17 @@
+{
+  "name": "customer-target",
+  "config": {
+    "connector.class": "io.debezium.connector.jdbc.JdbcSinkConnector",
+
+    "connection.url": "jdbc:postgresql://postgres-target:5432/customer_replica",
+    "connection.username": "postgres",
+    "connection.password": "postgres",
+    "collection.name.format" : "${source.table}",
+    "insert.mode": "upsert",
+    "delete.enabled": "true",
+    "primary.key.mode": "record_key",
+    "schema.evolution": "basic",
+    "use.time.zone": "UTC",
+    "topics": "cdc.public.customer"
+  }
+}

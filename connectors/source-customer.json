@@ -1,0 +1,22 @@
+{
+  "name": "customer-source",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+
+    "database.hostname": "postgres-source",
+    "database.port": "5432",
+    "database.user": "postgres",
+    "database.password": "postgres",
+    "database.dbname": "customer_db",
+
+    "topic.prefix": "cdc",
+    "table.include.list": "public.customer",
+
+    "plugin.name": "pgoutput",
+    "slot.name": "debezium_customer",
+    "publication.name": "dbz_customer_pub",
+    "publication.autocreate.mode": "filtered",
+
+    "snapshot.mode": "initial"
+  }
+}

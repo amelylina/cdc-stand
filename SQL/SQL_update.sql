@@ -1,0 +1,1 @@
+UPDATE customer SET customer_age = customer_age + 1, updated_at = now() WHERE customer_id = 1;
